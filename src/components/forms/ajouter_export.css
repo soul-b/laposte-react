@@ -1,0 +1,29 @@
+.modal_ajout {
+  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   }
+   
+   .form_ajout {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+   .input_a{
+     border: 1px solid black;
+   }
+   
+   .champ_a {
+     display: flex;
+     align-items: center;
+     margin-bottom: 10px;
+     
+   }
+   
+   .label {
+     display: block;
+     font-weight: bold;
+     margin-right: 10px;
+   }
+   
+   
+   

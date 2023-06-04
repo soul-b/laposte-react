@@ -1,0 +1,30 @@
+.option_facture{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 83%;
+  text-decoration: none;
+    
+
+
+}
+.option_facture a{
+    text-decoration: none;
+    color: black;
+
+}
+.option{
+  width: 150px;
+  height: 50px;
+  background-color: #95a5a6;
+  margin: 0 10px; 
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  
+    
+
+}

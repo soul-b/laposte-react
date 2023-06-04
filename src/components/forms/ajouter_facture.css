@@ -1,0 +1,119 @@
+.formulaire{
+    
+    width: min-content;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap;
+    border: 3px solid black;
+    padding: 15px;
+}
+
+.enr{
+    margin-top: 5%;
+    margin-left: 52%;
+}
+
+.description{
+    display: flex;
+}
+
+.adresse{
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 13px;
+    width: 500px;
+    height: 200px;
+}
+
+.date{
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 13px;
+    width: 300px;
+    height: 200px;
+}
+
+.tab_2_3{
+    display: flex;
+}
+
+.tab_1{
+    margin: 10px;
+    width: 826px;
+}
+
+.tab_2{
+    margin: 10px;
+    width: 405px;
+}
+
+.tab_3{
+    margin: 10px;
+    width: 400px;
+}
+
+.resume{
+    display: flex;
+}
+
+.payement{
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 13px;
+    width: 600px;
+    height: 200px;
+}
+
+.signature{
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 13px;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+
+.v_all{
+    margin-top: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.all{
+    
+    border: 3px solid black;
+    width: 850px;
+   
+}
+
+header{
+    text-align: center;
+    margin: 10px;
+}
+
+footer{
+    margin: 10px;
+    width: 826px;
+}
+
+.p_1{
+    border-top: 1px solid black;
+    border-bottom: 1px dotted black;
+}
+
+.btn{
+    margin-top: 30px;
+    margin-left: 800px;
+}

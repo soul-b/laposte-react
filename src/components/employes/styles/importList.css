@@ -1,0 +1,288 @@
+div{
+    text-align: center;
+  }
+
+  .container_l {
+    
+    margin-right: auto;
+    padding-left: 220px;
+    padding-right: 100px;
+  }
+  .table{
+   
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    
+  } 
+  .title{
+    background-color: #95a5a6;
+    margin: 0px;
+   
+  }
+  .sub-title{
+    background-color: #f4f4f4;
+    
+  }
+  .part{
+    display: flex;
+    text-align: center;
+    
+  }
+  .sub-part{
+    display: flex;
+    height: 45px;
+    border: 1px solid black;
+    
+  }
+  .range{
+    display: block;
+    width: 150px;
+    border: 1px solid black;
+   
+    
+
+   
+    
+  }
+   h6 {
+    border-bottom: 1px solid black;
+     /* Ajustez la valeur de marge supérieure selon vos besoins */
+     display: block;
+     margin: 0px;
+     padding: 0px;
+     
+  }
+  .sub-range{
+   
+    padding-bottom: 11px;
+    display: flex;
+    text-align: center;
+    
+  }
+  
+  .sub-range{
+    
+    padding-left: 15px; /* Ajustez la valeur de marge gauche selon vos besoins */
+
+  }
+  .sub-range-part:nth-child(2){
+    border-left: 1px solid black;
+    padding-bottom: 8px; /* Ajustez la valeur de marge gauche selon vos besoins */
+    
+  }
+  .sub-range-part:nth-child(1){
+    text-align: center;
+    padding-right: 2px;
+    
+
+  }
+  .date_a{
+    display: block;
+    height: 45px;
+    width: 150px;
+    border: 1px solid black;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .nb-total-sacs{
+     display: flex;
+    height: 45px;
+    border: 1.5px solid black;
+    border-bottom: 1.5px solid black;
+    width: 132px;
+    
+  }
+  
+  .prix-total{
+     display: flex;
+    height: 45px;
+    border: 1px solid black;
+    width: 132px;
+    
+  }
+  
+  .action{
+    display: flex;
+    height: 45px;
+    border: 1px solid black;
+    width: 170px;
+    border-bottom-right-radius: 5px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .field {
+    border: 1px solid black;
+   
+    display: flex;
+  }
+  
+  .field_2 {
+    border-right: 1px solid black;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .field_2:last-child {
+    border-right: 10px;
+  }
+  
+  .field_2_d{
+     border: 1px solid black;
+    text-align: center;
+    height: 45px;
+    width: 76px;
+    font-size: 8px;
+  }
+  
+  .field_2_t{
+     border: 1px solid black;
+    text-align: center;
+    width: 77px;
+  }
+  
+  .field_2_m{
+    text-align: center;
+    width: 85px;
+  }
+  .field_2_s{
+    text-align: center;
+    border-right: 1px solid black;
+    width: 64px;
+    
+  }
+  
+  button{
+    width: 43px;
+    font-size: 8px;
+    text-align: center;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  .form_modif {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    border-collapse: collapse;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+   
+    
+  }
+
+
+  
+  
+  
+  .champ {
+    border: 1px solid black;
+   
+    display: flex;
+  }
+  
+  .champ_2 {
+    border-right: 1px solid black;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .champ_2:last-child {
+    border-right: none;
+    
+  }
+  
+  input[type="number"] {
+    border: none;
+    width: 50px;
+  }
+  
+  .champ_2_d{
+    border: 1px solid black;
+    text-align: center;
+    height: 45px;
+    width: 86px;
+    font-size: 8px;
+  }
+  
+  .champ_2_t{
+    border: 1px solid black;
+    text-align: center;
+    width: 77px;
+  }
+  
+  .champ_2_m{
+    text-align: center;
+    width: 85px;
+  }
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
