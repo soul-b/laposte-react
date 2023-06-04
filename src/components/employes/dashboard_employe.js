@@ -12,7 +12,6 @@ import { useContext } from 'react';
 
 function DashboardEmploye() {
   const jwtKey = useContext(JwtKeyContext);
-  alert(jwtKey);
       return (
         <div className="DashboardEmploye">
             <BrowserRouter>

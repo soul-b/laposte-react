@@ -16,7 +16,7 @@ function Login({ setIsLoggedIn, setRole, setjwtKey }) {
   });
 
   const postData = (dataToSubmit) => {
-    fetch("http://127.0.0.1:8089/api/login_check", {
+    fetch("https://127.0.0.1:8089/api/login_check", {
       method: "post",
       headers: {
         'Accept': 'application/json',
@@ -43,6 +43,10 @@ function Login({ setIsLoggedIn, setRole, setjwtKey }) {
         setIsLoggedIn(true);
         setRole(data.data.roles);
         setjwtKey(data.token);
+
+        sessionStorage.setItem('isLoggedIn', JSON.stringify(true));
+        sessionStorage.setItem('role', data.data.roles);
+        sessionStorage.setItem('jwtKey', data.token);
         // Perform actions with the data
       })
       .catch(error => {

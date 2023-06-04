@@ -25,7 +25,7 @@ function ExportList(props) {
   }
 
 //   useEffect(() => {
-//     axios.get(`http://127.0.0.1:8088/api/export`)
+//     axios.get(`https://127.0.0.1:8088/api/export`)
 //       .then((response) => {
 //         setAPIData(response.data);
 //       })
@@ -34,8 +34,8 @@ function ExportList(props) {
 
   const jwtKey = useContext(JwtKeyContext);
   const fetchData = (page) => {
-    console.log("http://127.0.0.1:8089/api/exports?page="+page)
-   fetch("http://127.0.0.1:8089/api/exports?page="+page, {
+    console.log("https://127.0.0.1:8089/api/exports?page="+page)
+   fetch("https://127.0.0.1:8089/api/exports?page="+page, {
     headers: {
       'Authorization': `Bearer ${jwtKey}`,
       'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ function ExportList(props) {
   },[page,changing])
 
 //  const postData = () => {
-//       fetch("http://127.0.0.1:8088/api/export/", {
+//       fetch("https://127.0.0.1:8088/api/export/", {
 //         method: "post",
 //         headers: {
 //           'Accept': 'application/json',

@@ -25,7 +25,7 @@ function ImportList(props) {
   }
 
   //   useEffect(() => {
-  //     axios.get(`http://127.0.0.1:8088/api/import`)
+  //     axios.get(`https://127.0.0.1:8088/api/import`)
   //       .then((response) => {
   //         setAPIData(response.data);
   //       })
@@ -34,7 +34,7 @@ function ImportList(props) {
 
   const jwtKey = useContext(JwtKeyContext);
   const fetchData = (page) => {
-    fetch("http://127.0.0.1:8089/api/imports?page=" + page, {
+    fetch("https://127.0.0.1:8089/api/imports?page=" + page, {
       headers: {
         'Authorization': `Bearer ${jwtKey}`,
         'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ function ImportList(props) {
   }, [page, changing])
 
   //  const postData = () => {
-  //       fetch("http://127.0.0.1:8088/api/import/", {
+  //       fetch("https://127.0.0.1:8088/api/import/", {
   //         method: "post",
   //         headers: {
   //           'Accept': 'application/json',

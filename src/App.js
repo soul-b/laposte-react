@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Laposte from './components/laposte';
-import React,  {useState }  from "react";
+import React,  {useState,useEffect }  from "react";
 import Login from './components/forms/login'
 import JwtKeyContext from './components/context/JwtKeyContext';
 
@@ -11,6 +11,26 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [role, setRole] = useState(null);
   const [jwtKey, setjwtKey] = useState(null);
+
+  useEffect(() => {
+    const storedIsLoggedIn = sessionStorage.getItem('isLoggedIn');
+    const storedRole = sessionStorage.getItem('role');
+    const storedJwtKey = sessionStorage.getItem('jwtKey');
+    if (storedIsLoggedIn) {
+      setIsLoggedIn(JSON.parse(storedIsLoggedIn));
+    }
+
+    if (storedRole) {
+      setRole(storedRole);
+    }
+
+    if (storedJwtKey) {
+      setjwtKey(storedJwtKey);
+    }
+  }, []);
+
+
+
 
   return (
 

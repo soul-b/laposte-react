@@ -14,7 +14,7 @@ function Ajouter_client(props) {
 
     const jwtKey = useContext(JwtKeyContext);
     const postData = (dataToSubmit) => {
-        fetch("http://127.0.0.1:8089/api/client/", {
+        fetch("https://127.0.0.1:8089/api/client/", {
           method: "post",
           headers: {
             'Authorization': `Bearer ${jwtKey}`,

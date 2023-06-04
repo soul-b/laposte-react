@@ -21,7 +21,7 @@ const toggleModifierClientForm = () => {
 
 const jwtKey = useContext(JwtKeyContext);
 const supprimer = () => {
-    fetch("http://127.0.0.1:8089/api/export/"+props.data.id, {
+    fetch("https://127.0.0.1:8089/api/export/"+props.data.id, {
       method: "delete",
       headers: {
         'Authorization': `Bearer ${jwtKey}`,
