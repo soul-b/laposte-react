@@ -10,18 +10,33 @@ import JwtKeyContext from '../../context/JwtKeyContext';
 
 function ExportList(props) {
   const [APIData, setAPIData] = useState([]);
-  const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageCurrentDate,setPageCurrentDate] = useState('');
+
+  const [maxPage, setMaxPage] = useState(0);
+
   const [changing, setChanging] = useState(1);
+
+
+  const [groupedData ,setGroupedData ] = useState([]);
+  const [clientList, setClientList] = useState([]);
+  const [selectedClient, setSelectedClient] = useState(null);
 
   function doChanging() {
     setChanging(changing + 1);
   }
 
   function handleNextPage() {
-    setPage(page + 1);
+    if (currentPage < maxPage) {
+      setCurrentPage(currentPage + 1);
+      setSelectedClient(null);
+    }
   }
   function handleLastPage() {
-    setPage(page - 1);
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+      setSelectedClient(null);
+    }
   }
 
 //   useEffect(() => {
@@ -42,40 +57,48 @@ function ExportList(props) {
     }
   })
       .then((response) => response.json())
-      .then((data) => setAPIData(data.exports));
+      .then((data) => {
+        setMaxPage(data.total_pages);
+        // const sortedArray = (data.exports.sort((a, b) => a.client.id - b.client.id);
+        setAPIData(data.exports.sort((a, b) => a.client.id - b.client.id));
+
+        setGroupedData(data.exports.reduce((result, item) => {
+          const clientId = item.client.id;
+          if (!result[clientId]) {
+            result[clientId] = [];
+          }
+          result[clientId].push(item);
+          return result;
+        }, {}));
+        setClientList(Object.keys(groupedData));
+        console.log('*********grouped data*******');
+        console.log(groupedData);
+        setPageCurrentDate(data.exports[0].date.substring(0, 7))
+      });
   };
 
   useEffect(()=>{
     console.log("rerender")
-    console.log(page)
-    fetchData(page)
-  },[page,changing])
+    console.log(currentPage)
+    console.log(groupedData);
+    fetchData(currentPage)
+  },[currentPage,changing])
 
-//  const postData = () => {
-//       fetch("https://127.0.0.1:8088/api/export/", {
-//         method: "post",
-//         headers: {
-//           'Accept': 'application/json',
-//           'Content-Type': 'application/json'
-//         },
-      
-//         //make sure to serialize your JSON body
-//         body: JSON.stringify({
-//           nom: "Client 666",
-//           tel: 6666666,
-//           email: "6666@example.com",
-//           adresse: "Adresse client 666",
-//         })
-//       })
-//       .then( (response) => { 
-//          //do something awesome that makes the world a better place
-//          console.log(response)
-//       });
-//   };
+  useEffect(()=>{
+    setClientList(Object.keys(groupedData));
+  },[groupedData])
 
-  // React.useEffect(() => {
-  //   postData();
-  // }, []);
+  const handleClientChange = (clientId) => {
+    setSelectedClient(clientId);
+  };
+
+  const getClientInfoById = (clientId,data) => {
+    // Retrieve client info by ID
+    const clientInfo = data.find(item => item.client.id == clientId);
+    console.log("***********")
+    console.log(clientInfo)
+    return clientInfo ? clientInfo.client : null;
+  };
 
   return (
     <>
@@ -83,10 +106,18 @@ function ExportList(props) {
 
 
 <div className="table">
+    <select value={selectedClient} onChange={(e) => handleClientChange(e.target.value)}>
+      <option value="">Select a client</option>
+      {clientList.map((clientId) => (
+          <option key={clientId} value={clientId}>
+            {getClientInfoById(clientId,APIData).nom}
+          </option>
+      ))}
+    </select>
     <div className="title">EXPORTS</div>
     <div className="sub-title">Poids des sacs</div>
     <div className="part">
-      <div className="date">Date</div>
+      <div className="date">{pageCurrentDate}</div>
       <div className="sub-part">
         <div className="range">
           <h6>range_5</h6>
@@ -170,19 +201,23 @@ function ExportList(props) {
     
   </div>
     
-    {Object.keys(APIData).length > 0 &&
-            APIData.map((data) => {
-            return (
-                <ExportElment data={data} doChanging={doChanging}/>
-            )
-            }
-            )}
-        <button onClick={handleLastPage}>
-            Précédent
-        </button>
-        <button onClick={handleNextPage}>
-            Suivant
-        </button>
+    {/*{Object.keys(APIData).length > 0 &&*/}
+    {/*        APIData.map((data) => {*/}
+    {/*        return (*/}
+    {/*            <ExportElment data={data} doChanging={doChanging}/>*/}
+    {/*        )*/}
+    {/*        }*/}
+    {/*        )}*/}
+      {selectedClient && groupedData[selectedClient].map((item) => (
+          <ExportElment key={item.id} data={item} doChanging={doChanging}/>
+      ))}
+      <button onClick={handleLastPage} disabled={currentPage === 1}>
+        Précédent
+      </button>
+      <span>{currentPage}</span>
+      <button onClick={handleNextPage} disabled={currentPage === maxPage}>>
+        Suivant
+      </button>
         
         <div className='ajout'><Ajouter_export doChanging={doChanging} /></div>
     </>

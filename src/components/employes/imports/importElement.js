@@ -49,7 +49,7 @@ console.log(userData)
       <> 
       {!modal &&(
         <div className="form_modif" key={userData.id}>
-        <div className="field_2_d">{userData.date}</div>
+        <div className="field_2_d">{userData.date.split("T")[0]}</div>
         <div className="field">
           <div className="field_2_s">
           {userData.range_5}

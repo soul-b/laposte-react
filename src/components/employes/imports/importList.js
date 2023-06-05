@@ -3,6 +3,7 @@ import ImportElment from './importElement'
 import React, { useEffect, useState, useContext } from 'react';
 import Ajouter_import from '../../forms/ajouter_import';
 import JwtKeyContext from '../../context/JwtKeyContext';
+import ExportElment from "../exports/exportElement";
 
 
 
@@ -10,19 +11,47 @@ import JwtKeyContext from '../../context/JwtKeyContext';
 
 function ImportList(props) {
   const [APIData, setAPIData] = useState([]);
-  const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageCurrentDate,setPageCurrentDate] = useState('');
+  const [maxPage, setMaxPage] = useState(0);
+
   const [changing, setChanging] = useState(1);
+
+  const [groupedData ,setGroupedData ] = useState([]);
+  const [clientList, setClientList] = useState([]);
+  const [selectedClient, setSelectedClient] = useState(null);
 
   function doChanging() {
     setChanging(changing + 1);
   }
 
   function handleNextPage() {
-    setPage(page + 1);
+    if (currentPage < maxPage) {
+      setCurrentPage(currentPage + 1);
+    }
   }
   function handleLastPage() {
-    setPage(page - 1);
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
   }
+
+
+  useEffect(()=>{
+    setClientList(Object.keys(groupedData));
+  },[groupedData])
+
+  const handleClientChange = (clientId) => {
+    setSelectedClient(clientId);
+  };
+
+  const getClientInfoById = (clientId,data) => {
+    // Retrieve client info by ID
+    const clientInfo = data.find(item => item.client.id == clientId);
+    console.log("***********")
+    console.log(clientInfo)
+    return clientInfo ? clientInfo.client : null;
+  };
 
   //   useEffect(() => {
   //     axios.get(`https://127.0.0.1:8088/api/import`)
@@ -41,14 +70,29 @@ function ImportList(props) {
       }
     })
       .then((response) => response.json())
-      .then((data) => setAPIData(data.imports));
+      .then((data) => {
+        setMaxPage(data.total_pages);
+        setAPIData(data.imports.sort((a, b) => a.client.id - b.client.id));
+
+        setGroupedData(data.imports.reduce((result, item) => {
+          const clientId = item.client.id;
+          if (!result[clientId]) {
+            result[clientId] = [];
+          }
+          result[clientId].push(item);
+          return result;
+        }, {}));
+        setClientList(Object.keys(groupedData));
+
+        setPageCurrentDate(data.imports[0].date.substring(0, 7))
+      });
   };
 
   useEffect(() => {
     console.log("rerender")
-    console.log(page)
-    fetchData(page)
-  }, [page, changing])
+    console.log(currentPage)
+    fetchData(currentPage)
+  }, [currentPage, changing])
 
   //  const postData = () => {
   //       fetch("https://127.0.0.1:8088/api/import/", {
@@ -84,10 +128,20 @@ function ImportList(props) {
         
       </div>
       <div className="table">
+
+        <select value={selectedClient} onChange={(e) => handleClientChange(e.target.value)}>
+          <option value="">Select a client</option>
+          {clientList.map((clientId) => (
+              <option key={clientId} value={clientId}>
+                {getClientInfoById(clientId,APIData).nom}
+              </option>
+          ))}
+        </select>
+
         <div className="title">IMPORTS</div>
         <div className="sub-title">Poids des sacs</div>
         <div className="part">
-          <div className="date_a">Date</div>
+          <div className="date_a">{pageCurrentDate}</div>
           <div className="sub-part">
             <div className="range">
               <h6>range_5</h6>
@@ -171,17 +225,21 @@ function ImportList(props) {
 
       </div>
 
-      {Object.keys(APIData).length > 0 &&
-        APIData.map((data) => {
-          return (
-            <ImportElment data={data} doChanging={doChanging} />
-          )
-        }
-        )}
-      <button onClick={handleLastPage}>
+      {/*{Object.keys(APIData).length > 0 &&*/}
+      {/*  APIData.map((data) => {*/}
+      {/*    return (*/}
+      {/*      <ImportElment data={data} doChanging={doChanging} />*/}
+      {/*    )*/}
+      {/*  }*/}
+      {/*  )}*/}
+      {selectedClient && groupedData[selectedClient].map((item) => (
+          <ImportElment key={item.id} data={item} doChanging={doChanging}/>
+      ))}
+      <button onClick={handleLastPage} disabled={currentPage === 1}>
         Précédent
       </button>
-      <button onClick={handleNextPage}>
+      <span>{currentPage}</span>
+      <button onClick={handleNextPage} disabled={currentPage === maxPage}>>
         Suivant
       </button>
 
