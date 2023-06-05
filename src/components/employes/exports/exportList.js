@@ -5,6 +5,7 @@ import Ajouter_export from '../../forms/ajouter_export';
 
 import axios from 'axios';
 import JwtKeyContext from '../../context/JwtKeyContext';
+import LoadingIndicator from "../../utils/LoadingIndicator";
 
 
 
@@ -21,6 +22,9 @@ function ExportList(props) {
   const [groupedData ,setGroupedData ] = useState([]);
   const [clientList, setClientList] = useState([]);
   const [selectedClient, setSelectedClient] = useState(null);
+
+  const [isLoading, setIsLoading] = useState(true);
+
 
   function doChanging() {
     setChanging(changing + 1);
@@ -39,17 +43,10 @@ function ExportList(props) {
     }
   }
 
-//   useEffect(() => {
-//     axios.get(`https://127.0.0.1:8088/api/export`)
-//       .then((response) => {
-//         setAPIData(response.data);
-//       })
-//   }, [props.isReload])
 
 
   const jwtKey = useContext(JwtKeyContext);
   const fetchData = (page) => {
-    console.log("https://127.0.0.1:8089/api/exports?page="+page)
    fetch("https://127.0.0.1:8089/api/exports?page="+page, {
     headers: {
       'Authorization': `Bearer ${jwtKey}`,
@@ -71,16 +68,17 @@ function ExportList(props) {
           return result;
         }, {}));
         setClientList(Object.keys(groupedData));
-        console.log('*********grouped data*******');
-        console.log(groupedData);
-        setPageCurrentDate(data.exports[0].date.substring(0, 7))
+
+        setSelectedClient(data.exports[0].client.id);
+
+        setPageCurrentDate(data.exports[0].date.substring(0, 7));
+
+        setIsLoading(false);
       });
   };
 
   useEffect(()=>{
-    console.log("rerender")
-    console.log(currentPage)
-    console.log(groupedData);
+    setIsLoading(true);
     fetchData(currentPage)
   },[currentPage,changing])
 
@@ -110,7 +108,8 @@ function ExportList(props) {
       <option value="">Select a client</option>
       {clientList.map((clientId) => (
           <option key={clientId} value={clientId}>
-            {getClientInfoById(clientId,APIData).nom}
+            {getClientInfoById(clientId,APIData)&&
+              getClientInfoById(clientId,APIData).nom}
           </option>
       ))}
     </select>
@@ -208,6 +207,8 @@ function ExportList(props) {
     {/*        )*/}
     {/*        }*/}
     {/*        )}*/}
+      
+      <LoadingIndicator isLoading={isLoading} />
       {selectedClient && groupedData[selectedClient].map((item) => (
           <ExportElment key={item.id} data={item} doChanging={doChanging}/>
       ))}

@@ -72,8 +72,8 @@ function Ajouter_import(props) {
             range_20: Number(data.range_20),
             range_25: Number(data.range_25),
             range_30: Number(data.range_30),
-            clientId:Number(selectedClientId)
-           
+            clientId:Number(selectedClientId),
+            date: data.date ? data.date : new Date().toISOString().split('T')[0]
         };
 
 

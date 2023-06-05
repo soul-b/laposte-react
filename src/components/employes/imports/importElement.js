@@ -35,6 +35,7 @@ const supprimer = () => {
        //do something awesome that makes the world a better place
        console.log(response)
        if(response.ok){
+           props.doChanging();
         alert("delete")
        }else{
         alert("error system")

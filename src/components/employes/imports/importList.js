@@ -4,6 +4,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import Ajouter_import from '../../forms/ajouter_import';
 import JwtKeyContext from '../../context/JwtKeyContext';
 import ExportElment from "../exports/exportElement";
+import LoadingIndicator from "../../utils/LoadingIndicator";
 
 
 
@@ -20,6 +21,9 @@ function ImportList(props) {
   const [groupedData ,setGroupedData ] = useState([]);
   const [clientList, setClientList] = useState([]);
   const [selectedClient, setSelectedClient] = useState(null);
+
+  const [isLoading, setIsLoading] = useState(true);
+
 
   function doChanging() {
     setChanging(changing + 1);
@@ -53,13 +57,6 @@ function ImportList(props) {
     return clientInfo ? clientInfo.client : null;
   };
 
-  //   useEffect(() => {
-  //     axios.get(`https://127.0.0.1:8088/api/import`)
-  //       .then((response) => {
-  //         setAPIData(response.data);
-  //       })
-  //   }, [props.isReload])
-
 
   const jwtKey = useContext(JwtKeyContext);
   const fetchData = (page) => {
@@ -84,41 +81,22 @@ function ImportList(props) {
         }, {}));
         setClientList(Object.keys(groupedData));
 
-        setPageCurrentDate(data.imports[0].date.substring(0, 7))
+        setSelectedClient(data.imports[0].client.id);
+
+        setPageCurrentDate(data.imports[0].date.substring(0, 7));
+
+        setIsLoading(false);
+
       });
   };
 
   useEffect(() => {
-    console.log("rerender")
-    console.log(currentPage)
+    setIsLoading(true);
+
     fetchData(currentPage)
   }, [currentPage, changing])
 
-  //  const postData = () => {
-  //       fetch("https://127.0.0.1:8088/api/import/", {
-  //         method: "post",
-  //         headers: {
-  //           'Accept': 'application/json',
-  //           'Content-Type': 'application/json'
-  //         },
 
-  //         //make sure to serialize your JSON body
-  //         body: JSON.stringify({
-  //           nom: "Client 666",
-  //           tel: 6666666,
-  //           email: "6666@example.com",
-  //           adresse: "Adresse client 666",
-  //         })
-  //       })
-  //       .then( (response) => { 
-  //          //do something awesome that makes the world a better place
-  //          console.log(response)
-  //       });
-  //   };
-
-  // React.useEffect(() => {
-  //   postData();
-  // }, []);
 
   return (
     <>
@@ -133,7 +111,8 @@ function ImportList(props) {
           <option value="">Select a client</option>
           {clientList.map((clientId) => (
               <option key={clientId} value={clientId}>
-                {getClientInfoById(clientId,APIData).nom}
+                {getClientInfoById(clientId,APIData) &&
+                  getClientInfoById(clientId,APIData).nom}
               </option>
           ))}
         </select>
@@ -232,6 +211,7 @@ function ImportList(props) {
       {/*    )*/}
       {/*  }*/}
       {/*  )}*/}
+      <LoadingIndicator isLoading={isLoading} />
       {selectedClient && groupedData[selectedClient].map((item) => (
           <ImportElment key={item.id} data={item} doChanging={doChanging}/>
       ))}

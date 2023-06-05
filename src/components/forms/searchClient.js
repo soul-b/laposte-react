@@ -18,6 +18,7 @@ const ClientSearch = ({ onSelectClient }) => {
           }});
         const data = await response.json();
         setClients(data);
+        console.log(data);
       } catch (error) {
         console.error('Error fetching clients:', error);
       }
