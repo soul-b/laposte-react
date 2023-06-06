@@ -42,7 +42,7 @@ const Sidebar_employe = () => {
             <Link className={currCount === 1 && 'active'} to="/employe/gestion_export" onClick={() => onClickTab(1)}>
               <span className={currCount === 1 && 'text-active'}><i className="fas fa-arrow-right"></i> Export</span>
             </Link>
-            <Link className={currCount === 2 && 'active'} to="/employe/compte" onClick={() => onClickTab(2)}>
+            <Link className={currCount === 2 && 'active'} to="/employe/profile" onClick={() => onClickTab(2)}>
               <span className={currCount === 2 && 'text-active'}><i className="fas fa-arrow-right"></i> Compte</span>
             </Link>
             <Link className={currCount === 3 && 'active'} to="/employe/Deconnexion" onClick={() => onClickTab(3)}>

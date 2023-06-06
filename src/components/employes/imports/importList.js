@@ -101,21 +101,22 @@ function ImportList(props) {
   return (
     <>
 
-
       <div className="parametre">
-        
-      </div>
-      <div className="table">
 
-        <select value={selectedClient} onChange={(e) => handleClientChange(e.target.value)}>
+        <select className='select_client' value={selectedClient} onChange={(e) => handleClientChange(e.target.value)}>
           <option value="">Select a client</option>
           {clientList.map((clientId) => (
               <option key={clientId} value={clientId}>
                 {getClientInfoById(clientId,APIData) &&
-                  getClientInfoById(clientId,APIData).nom}
+                    getClientInfoById(clientId,APIData).nom}
               </option>
           ))}
         </select>
+
+        <div ><Ajouter_import doChanging={doChanging} /></div>
+      </div>
+
+      <div className="table">
 
         <div className="title">IMPORTS</div>
         <div className="sub-title">Poids des sacs</div>
@@ -211,6 +212,7 @@ function ImportList(props) {
       {/*    )*/}
       {/*  }*/}
       {/*  )}*/}
+
       <LoadingIndicator isLoading={isLoading} />
       {selectedClient && groupedData[selectedClient].map((item) => (
           <ImportElment key={item.id} data={item} doChanging={doChanging}/>
@@ -222,8 +224,6 @@ function ImportList(props) {
       <button onClick={handleNextPage} disabled={currentPage === maxPage}>>
         Suivant
       </button>
-
-      <div className='ajout'><Ajouter_import doChanging={doChanging} /></div>
     </>
 
 

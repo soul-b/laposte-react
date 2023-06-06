@@ -89,7 +89,7 @@ function Ajouter_export(props) {
         
            
             {!modal &&(<button onClick={toggleAjouter_export} className="btn_ajouter_client">
-                Ajouter
+                Ajouter un nouvel export
             </button>)}
             {modal &&(
                 <div className="modal_ajout">

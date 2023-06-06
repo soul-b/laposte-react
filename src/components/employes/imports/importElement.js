@@ -44,57 +44,57 @@ const supprimer = () => {
   
   }
 
-const userData =props.data;
-console.log(userData)
+const importData =props.data;
+console.log(importData)
     return  (
       <> 
       {!modal &&(
-        <div className="form_modif" key={userData.id}>
-        <div className="field_2_d">{userData.date.split("T")[0]}</div>
+        <div className="form_modif" key={importData.id}>
+        <div className="field_2_d">{importData.date.split("T")[0]}</div>
         <div className="field">
           <div className="field_2_s">
-          {userData.range_5}
+          {importData.range_5}
           </div>
-          <div className="field_2_m">{userData.range_5*5}</div>
+          <div className="field_2_m">{importData.range_5*5}</div>
         </div>
         <div className="field">
           <div className="field_2_s">
-          {userData.range_10}
+          {importData.range_10}
           </div>
-          <div className="field_2_m">{userData.range_10*6}</div>
+          <div className="field_2_m">{importData.range_10*6}</div>
         </div>
         <div className="field">
           <div className="field_2_s">
-          {userData.range_15}
+          {importData.range_15}
           </div>
-          <div className="field_2_m">{userData.range_15*7}</div>
+          <div className="field_2_m">{importData.range_15*7}</div>
         </div>
         <div className="field">
           <div className="field_2_s">
-          {userData.range_20}
+          {importData.range_20}
           </div>
-          <div className="field_2_m">{userData.range_20*8}</div>
+          <div className="field_2_m">{importData.range_20*8}</div>
         </div>
         <div className="field">
           <div className="field_2_s">
-          {userData.range_25}
+          {importData.range_25}
           </div>
-          <div className="field_2_m">{userData.range_25*9}</div>
+          <div className="field_2_m">{importData.range_25*9}</div>
         </div>
         <div className="field">
           <div className="field_2_s">
-          {userData.range_30}
+          {importData.range_30}
           </div>
-          <div className="field_2_m">{userData.range_30*10}</div>
+          <div className="field_2_m">{importData.range_30*10}</div>
         </div>
-        <div className="field_2_t">{userData.range_5+userData.range_10+userData.range_15+userData.range_20+userData.range_25+userData.range_30}</div>
-        <div className="field_2_t">{userData.range_5*5+userData.range_10*6+userData.range_15*7+userData.range_20*8+userData.range_25*9+userData.range_30*10}</div>
+        <div className="field_2_t">{importData.range_5+importData.range_10+importData.range_15+importData.range_20+importData.range_25+importData.range_30}</div>
+        <div className="field_2_t">{importData.range_5*5+importData.range_10*6+importData.range_15*7+importData.range_20*8+importData.range_25*9+importData.range_30*10}</div>
         <button onClick={toggleModifierClientForm}>Modifier</button>
         <button onClick={supprimer}>supprimer</button>
       </div>
 
       )}
-                <Modifier_import modal={modal} toggleModifierClientForm={toggleModifierClientForm} data={userData} doChanging={props.doChanging}/>
+                <Modifier_import modal={modal} toggleModifierClientForm={toggleModifierClientForm} data={importData} doChanging={props.doChanging}/>
       </>
      
     )

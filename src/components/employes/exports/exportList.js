@@ -6,6 +6,7 @@ import Ajouter_export from '../../forms/ajouter_export';
 import axios from 'axios';
 import JwtKeyContext from '../../context/JwtKeyContext';
 import LoadingIndicator from "../../utils/LoadingIndicator";
+import Ajouter_import from "../../forms/ajouter_import";
 
 
 
@@ -101,18 +102,23 @@ function ExportList(props) {
   return (
     <>
 
+      <div className="parametre">
+
+        <select className='select_client' value={selectedClient} onChange={(e) => handleClientChange(e.target.value)}>
+          <option value="">Select a client</option>
+          {clientList.map((clientId) => (
+              <option key={clientId} value={clientId}>
+                {getClientInfoById(clientId,APIData) &&
+                    getClientInfoById(clientId,APIData).nom}
+              </option>
+          ))}
+        </select>
+
+        <div ><Ajouter_export doChanging={doChanging} /></div>
+      </div>
 
 
 <div className="table">
-    <select value={selectedClient} onChange={(e) => handleClientChange(e.target.value)}>
-      <option value="">Select a client</option>
-      {clientList.map((clientId) => (
-          <option key={clientId} value={clientId}>
-            {getClientInfoById(clientId,APIData)&&
-              getClientInfoById(clientId,APIData).nom}
-          </option>
-      ))}
-    </select>
     <div className="title">EXPORTS</div>
     <div className="sub-title">Poids des sacs</div>
     <div className="part">
@@ -219,8 +225,6 @@ function ExportList(props) {
       <button onClick={handleNextPage} disabled={currentPage === maxPage}>>
         Suivant
       </button>
-        
-        <div className='ajout'><Ajouter_export doChanging={doChanging} /></div>
     </>
     
            

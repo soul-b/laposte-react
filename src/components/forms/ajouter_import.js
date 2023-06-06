@@ -1,5 +1,4 @@
 import React,  {useContext, useState }  from "react";
-//import ReactDOM from "react-dom";
 import ClientSearch from './searchClient'
 
 import "./ajouter_import.css";
@@ -8,11 +7,12 @@ import JwtKeyContext from "../context/JwtKeyContext";
 function Ajouter_import(props) {
     const [modal, SetAjouter_import] = useState(false);
     const [selectedClientId, setSelectedClientId] = useState(null);
-    
+
+
     const handleSelectClient = (clientId) => {
         setSelectedClientId(clientId);
       };
-    
+
     const toggleAjouter_import = () => {
         SetAjouter_import(!modal)
     }
@@ -26,13 +26,13 @@ function Ajouter_import(props) {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
-        
+
           //make sure to serialize your JSON body
           body: JSON.stringify(dataToSubmit)
         })
-        .then( (response) => { 
+        .then( (response) => {
            //do something awesome that makes the world a better place
-        
+
            if(response.ok){
             alert("ajouter")
             props.doChanging()
@@ -42,8 +42,8 @@ function Ajouter_import(props) {
            }
         })
     };
-  
-    
+
+
     const [data, setData] = useState({
             range_5: "",
             range_10: "",
@@ -62,7 +62,7 @@ function Ajouter_import(props) {
           [e.target.name]: value
         });
       };
-    
+
       const handleSubmit = (e) => {
         e.preventDefault();
         const userData = {
@@ -79,75 +79,75 @@ function Ajouter_import(props) {
 
         console.log("**************");
         console.log(JSON.stringify(userData))
-        
+
         postData(userData);
     };
 
     return (
         <>
-        
-           
+
+
             {!modal &&(<button onClick={toggleAjouter_import} className="btn_ajouter_client">
-                Ajouter
+                Ajouter un nouvel import
             </button>)}
             {modal &&(
                 <div className="modal_ajout">
-                    
+
                             <form  onSubmit={handleSubmit}>
                                 <div className="form_ajout">
                                     <div className="champ_a">
                                         <label className="lablel">Nombre de sac de 0 à 5kg:</label>
                                         <input className="input_a" type="number" id="range_5" name="range_5" value={data.range_5}onChange={handleChange}/>
-                                        
-                                        
+
+
                                     </div>
                                     <div className="champ_a">
                                         <label className="lablel">Nombre de sac de 5 à 10kg:</label>
                                         <input className="input_a" type="number" id="range_10" name="range_10" value={data.range_10}onChange={handleChange}/>
-                                        
-                                        
+
+
                                     </div>
                                     <div className="champ_a">
                                         <label className="lablel">Nombre de sac de 10 à 15kg:</label>
-                                        
+
                                         <input className="input_a" type="number" id="range_15"name="range_15" value={data.range_15}onChange={handleChange}/>
-                                        
-                                        
+
+
                                     </div>
                                     <div className="champ_a">
                                         <label className="lablel">Nombre de sac de 15 à 20kg:</label>
                                         <input className="input_a" type="number" id="range_20"name="range_20" value={data.range_20}onChange={handleChange}/>
-                                        
-                                        
+
+
                                     </div>
                                     <div className="champ_a">
                                         <label className="lablel">Nombre de sac de 20 à 25kg:</label>
                                         <input type="number" id="range_25"name="range_25" value={data.range_25}onChange={handleChange}/>
-                                        
-                                        
+
+
                                     </div>
                                     <div className="champ_a">
                                         <label className="lablel">Nombre de sac de 25 à 30kg:</label>
                                         <input className="input_a" type="number" id="range_30"name="range_30" value={data.range_30} onChange={handleChange}/>
-                                        
-                                        
+
+
                                     </div>
-                                    
+
                                     <ClientSearch onSelectClient={handleSelectClient} />
                                     <button type="submit" name="valider_ajout">Valider</button>
                                     <button onClick={toggleAjouter_import}>Annuler</button>
                                 </div>
                             </form>
-    
+
 
                 </div>
 
             )}
 
-            
+
         </>
     )
-  
+
 }
 
 export default Ajouter_import
