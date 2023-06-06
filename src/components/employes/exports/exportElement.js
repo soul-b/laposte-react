@@ -52,7 +52,6 @@ console.log(exportData)
         <div className="field_2_d">{exportData.date.split("T")[0]}</div>
         <div className="field">
           <div className="field_2_s">
-              client id
           {exportData.range_5}
           </div>
           <div className="field_2_m">{exportData.range_5*5}</div>

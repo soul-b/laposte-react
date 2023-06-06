@@ -4,6 +4,8 @@ import Laposte from './components/laposte';
 import React,  {useState,useEffect }  from "react";
 import Login from './components/forms/login'
 import JwtKeyContext from './components/context/JwtKeyContext';
+import InternetStatusComponent from "./components/utils/InternetStatusComponent";
+import NetworkDetector from "./components/utils/NetworkDetector";
 
 
 
@@ -45,6 +47,7 @@ function App() {
               <Laposte isLoggedIn={isLoggedIn}  role={role}/>
             </JwtKeyContext.Provider>
         }
+        <InternetStatusComponent/>
       </div>
 
   )
