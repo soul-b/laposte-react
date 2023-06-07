@@ -13,7 +13,7 @@ function Modifier_client(props) {
 
     const jwtKey = useContext(JwtKeyContext);
     const postData = (dataToSubmit) => {
-        fetch("https://127.0.0.1:8089/api/client/"+props.userToUpdateData.id, {
+        fetch("http://127.0.0.1:8089/api/client/"+props.userToUpdateData.id, {
           method: "put",
           headers: {
             'Authorization': `Bearer ${jwtKey}`,

@@ -14,7 +14,7 @@ function Ajouter_facture(props) {
 
     const jwtKey = useContext(JwtKeyContext);
     const postData = (dataToSubmit) => {
-        fetch("https://127.0.0.1:8089/api/facture/", {
+        fetch("http://127.0.0.1:8089/api/facture/", {
           method: "post",
           headers: {
             'Authorization': `Bearer ${jwtKey}`,

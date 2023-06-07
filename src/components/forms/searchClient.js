@@ -12,7 +12,7 @@ const ClientSearch = ({ onSelectClient }) => {
     // Update the 'clients' state with the fetched data
     const fetchClients = async () => {
       try {
-        const response = await fetch('https://127.0.0.1:8089/api/client', {
+        const response = await fetch('http://127.0.0.1:8089/api/client', {
           headers: {
             'Authorization': `Bearer ${jwtKey}`
           }});
