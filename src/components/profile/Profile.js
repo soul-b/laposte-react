@@ -14,8 +14,7 @@ const animals = [
     "Ant",
     "Antelope",
     "Armadillo",
-    "Aurochs",
-    "Axolotl"
+    "Aurochs"
 ]
 
 function randomColor() {
