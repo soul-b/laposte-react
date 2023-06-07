@@ -7,15 +7,15 @@ import DashboardEmploye from './employes/dashboard_employe'
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 
 
-function Laposte({role}) {
+function Laposte({role,userId,isLoggedIn,setIsLoggedIn}) {
     if (role.includes("ROLE_ADMIN")) {
       return(
-          <DashboardAdmin />
+          <DashboardAdmin userId={userId} isLoggedIn={isLoggedIn}  setIsLoggedIn={setIsLoggedIn}/>
         );
     } else {
       if (role.includes("ROLE_USER")) {
         return(
-         <DashboardEmploye />
+         <DashboardEmploye userId={userId} isLoggedIn={isLoggedIn}  setIsLoggedIn={setIsLoggedIn}/>
           );
         
       } else {

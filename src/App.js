@@ -13,6 +13,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [role, setRole] = useState(null);
   const [jwtKey, setjwtKey] = useState(null);
+  const [userId,setUserId] = useState(null);
 
   useEffect(() => {
     const storedIsLoggedIn = sessionStorage.getItem('isLoggedIn');
@@ -40,11 +41,11 @@ function App() {
 
 
         {!isLoggedIn &&
-            <Login setIsLoggedIn={setIsLoggedIn} setRole={setRole} setjwtKey={setjwtKey}/>}
+            <Login setIsLoggedIn={setIsLoggedIn} setRole={setRole} setjwtKey={setjwtKey} setUserId={setUserId}/>}
 
         {isLoggedIn &&
             <JwtKeyContext.Provider value={jwtKey}>
-              <Laposte isLoggedIn={isLoggedIn}  role={role}/>
+              <Laposte isLoggedIn={isLoggedIn}  setIsLoggedIn={setIsLoggedIn} role={role} userId={userId}/>
             </JwtKeyContext.Provider>
         }
         <InternetStatusComponent/>

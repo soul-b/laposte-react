@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 import "./login.css";
 
-function Login({ setIsLoggedIn, setRole, setjwtKey }) {
+function Login({ setIsLoggedIn, setRole, setjwtKey,setUserId }) {
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -43,6 +43,7 @@ function Login({ setIsLoggedIn, setRole, setjwtKey }) {
         setIsLoggedIn(true);
         setRole(data.data.roles);
         setjwtKey(data.token);
+        setUserId(data.data.employeId);
 
         sessionStorage.setItem('isLoggedIn', JSON.stringify(true));
         sessionStorage.setItem('role', data.data.roles);

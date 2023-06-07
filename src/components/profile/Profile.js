@@ -27,10 +27,7 @@ function randomName() {
 }
 
 
-function Profile() {
-    const now = new Date(Date.now());
-    const defaultBirthday = new Date(now.getTime() + 86400000);
-
+function Profile({userId}) {
 
     const [employeData, setEmployeData] = useState({
         id: "44",
@@ -43,7 +40,7 @@ function Profile() {
 
     const jwtKey = useContext(JwtKeyContext);
     const fetchData = () => {
-        fetch("https://127.0.0.1:8089/api/employe/10", {
+        fetch("https://127.0.0.1:8089/api/employe/"+userId, {
             method: "get",
             headers: {
                 'Authorization': `Bearer ${jwtKey}`,
