@@ -1,8 +1,8 @@
 import {useContext, useEffect, useState} from 'react';
 import UserProfile from './UserProfile';
 import './profile.css';
-import JwtKeyContext from "../context/JwtKeyContext";
-import ImportList from "../employes/imports/importList";
+import JwtKeyContext from "../../context/JwtKeyContext";
+import ImportList from "../imports/importList";
 
 const animals = [
     "Aardvark",
@@ -14,8 +14,7 @@ const animals = [
     "Ant",
     "Antelope",
     "Armadillo",
-    "Aurochs",
-    "Axolotl"
+    "Aurochs"
 ]
 
 function randomColor() {

@@ -17,7 +17,7 @@ function Employe(props) {
           
          
         </ul>
-        <button className='ajout'>Ajouter</button>
+        <button className='ajout_e'>Ajouter</button>
         </div>
     )
     

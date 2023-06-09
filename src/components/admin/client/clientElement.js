@@ -1,8 +1,8 @@
 import JwtKeyContext from '../../context/JwtKeyContext';
 import Modifier_client from './modifier_client';
 import React,  {useContext, useState }  from "react";
-
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -50,7 +50,7 @@ console.log(userData)
         <div className=" col col-3">{userData.email}</div>
         <div className=" col col-4">{userData.adresse}</div>
         <div className=" col col-5">{userData.tel}</div>
-        <div className=" col col-6"><div><button onClick={alertIt}>V</button ></div><div><button onClick={toggleModifierClientForm}>M</button></div><div><button onClick={supprimer}>S</button></div></div>
+        <div className=" col col-6"><div><button onClick={alertIt}>V</button ></div><div><button onClick={toggleModifierClientForm}>M</button></div><div><FontAwesomeIcon onClick={supprimer} icon="faTrashCan" style={{color: "#e61919",}} /></div></div>
       </li>)}
      
       <Modifier_client modal={modal} toggleModifierClientForm={toggleModifierClientForm} userToUpdateData={userData} />

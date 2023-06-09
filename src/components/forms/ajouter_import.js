@@ -87,7 +87,7 @@ function Ajouter_import(props) {
         <>
 
 
-            {!modal &&(<button onClick={toggleAjouter_import} className="btn_ajouter_client">
+            {!modal &&(<button onClick={toggleAjouter_import} className="btn_ajouter_import">
                 Ajouter un nouvel import
             </button>)}
             {modal &&(
