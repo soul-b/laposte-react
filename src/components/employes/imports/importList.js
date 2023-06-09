@@ -82,7 +82,7 @@ function ImportList(props) {
 
     const jwtKey = useContext(JwtKeyContext);
     const fetchData = (page) => {
-        fetch("https://127.0.0.1:8089/api/imports?page=" + page, {
+        fetch("http://127.0.0.1:8089/api/imports?page=" + page, {
             headers: {
                 'Authorization': `Bearer ${jwtKey}`,
                 'Content-Type': 'application/json'

@@ -15,7 +15,7 @@ function Modifier_export(props) {
 
     const jwtKey = useContext(JwtKeyContext);
     const postData = (dataToSubmit) => {
-        fetch("https://127.0.0.1:8089/api/export/"+props.data.id, {
+        fetch("http://127.0.0.1:8089/api/export/"+props.data.id, {
           method: "put",
           headers: {
             'Authorization': `Bearer ${jwtKey}`,

@@ -16,7 +16,7 @@ function Login({ setIsLoggedIn, setRole, setjwtKey,setUserId }) {
   });
 
   const postData = (dataToSubmit) => {
-    fetch("https://127.0.0.1:8089/api/login_check", {
+    fetch("http://127.0.0.1:8089/api/login_check", {
       method: "post",
       headers: {
         'Accept': 'application/json',

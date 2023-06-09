@@ -40,7 +40,7 @@ function Profile({userId}) {
 
     const jwtKey = useContext(JwtKeyContext);
     const fetchData = () => {
-        fetch("https://127.0.0.1:8089/api/employe/"+userId, {
+        fetch("http://127.0.0.1:8089/api/employe/"+userId, {
             method: "get",
             headers: {
                 'Authorization': `Bearer ${jwtKey}`,

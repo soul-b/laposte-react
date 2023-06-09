@@ -16,7 +16,7 @@ function FactureElment(props) {
 
 const jwtKey = useContext(JwtKeyContext);
 const supprimer = () => {
-  fetch("https://127.0.0.1:8089/api/facture/"+props.data.id, {
+  fetch("http://127.0.0.1:8089/api/facture/"+props.data.id, {
     method: "delete",
     headers: {
       'Authorization': `Bearer ${jwtKey}`,

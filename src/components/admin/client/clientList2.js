@@ -10,7 +10,7 @@ function ClientList2(props) {
   const [APIData, setAPIData] = useState([]);
 
   // useEffect(() => {
-  //   axios.get(`https://127.0.0.1:8088/api/client`)
+  //   axios.get(`http://127.0.0.1:8088/api/client`)
   //     .then((response) => {
   //       setAPIData(response.data);
   //     })
@@ -19,7 +19,7 @@ function ClientList2(props) {
 
   const jwtKey = useContext(JwtKeyContext);
   const fetchData = () => {
-    fetch("https://127.0.0.1:8089/api/client", {
+    fetch("http://127.0.0.1:8089/api/client", {
       method: "get",
       headers: {
         'Authorization': `Bearer ${jwtKey}`,
@@ -33,7 +33,7 @@ function ClientList2(props) {
 
  
 //  const postData = () => {
-//       fetch("https://127.0.0.1:8089/api/client/", {
+//       fetch("http://127.0.0.1:8089/api/client/", {
 //         method: "post",
 //         headers: {
 //           'Authorization': `Bearer ${jwtKey}`,
