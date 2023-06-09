@@ -45,7 +45,10 @@ const Sidebar = () => {
             <Link className={currCount === 2 && 'active'} to="/admin/facturations" onClick={() => onClickTab(2)}>
               <span className={currCount === 2 && 'text-active'}><i className="fas fa-arrow-right"></i> Facturations</span>
             </Link>
-            <Link className={currCount === 3 && 'active'} to="/admin/Deconnexion" onClick={() => onClickTab(3)}>
+            <Link className={currCount === 2 && 'active'} to="/admin/compte" onClick={() => onClickTab(3)}>
+              <span className={currCount === 2 && 'text-active'}><i className="fas fa-arrow-right"></i> Compte</span>
+            </Link>
+            <Link className={currCount === 3 && 'active'} to="/admin/Deconnexion" onClick={() => onClickTab(4)}>
               <span className={currCount === 3 && 'text-active'}><i className="fas fa-arrow-right"></i> Deconnexion</span>
             </Link>
           </div>

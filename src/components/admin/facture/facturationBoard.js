@@ -14,7 +14,7 @@ function FactureBoard(props) {
       <ListeFacture isReload={reload}/>
       
 
-      <div className='ajout'><Ajouter_facture data={reload} updateParentData={setReload} /></div>
+      <div><Ajouter_facture data={reload} updateParentData={setReload} /></div>
 
 
 

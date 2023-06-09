@@ -1,119 +1,157 @@
-.formulaire{
+  
+
+
+
+  .form_facture {
+    background-color: #0E1657;
+    border-radius: 20px;
     
-    width: min-content;
-    height: auto;
+    height: 500px;
+    padding: 20px;
+    width: 320px;
+    justify-content: center;
     position: absolute;
-    top: 50%;
+    top: 150%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: flex;
-    flex-wrap: wrap;
-    border: 3px solid black;
-    padding: 15px;
-}
-
-.enr{
-    margin-top: 5%;
-    margin-left: 52%;
-}
-
-.description{
-    display: flex;
-}
-
-.adresse{
-    margin: 10px;
-    border: 2px solid black;
-    border-radius: 5px;
-    font-size: 13px;
-    width: 500px;
-    height: 200px;
-}
-
-.date{
-    margin: 10px;
-    border: 2px solid black;
-    border-radius: 5px;
-    font-size: 13px;
-    width: 300px;
-    height: 200px;
-}
-
-.tab_2_3{
-    display: flex;
-}
-
-.tab_1{
-    margin: 10px;
-    width: 826px;
-}
-
-.tab_2{
-    margin: 10px;
-    width: 405px;
-}
-
-.tab_3{
-    margin: 10px;
-    width: 400px;
-}
-
-.resume{
-    display: flex;
-}
-
-.payement{
-    margin: 10px;
-    border: 2px solid black;
-    border-radius: 5px;
-    font-size: 13px;
-    width: 600px;
-    height: 200px;
-}
-
-.signature{
-    margin: 10px;
-    border: 2px solid black;
-    border-radius: 5px;
-    font-size: 13px;
-    width: 200px;
-    height: 200px;
-    text-align: center;
-}
-
-.v_all{
-    margin-top: 200px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.all{
-    
-    border: 3px solid black;
-    width: 850px;
    
-}
-
-header{
+  }
+  
+  .title_facture {
+    color: #eee;
+    font-family: sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 20px;
     text-align: center;
-    margin: 10px;
-}
-
-footer{
-    margin: 10px;
-    width: 826px;
-}
-
-.p_1{
-    border-top: 1px solid black;
-    border-bottom: 1px dotted black;
-}
-
-.btn{
+  }
+  
+  .subtitle {
+    color: #eee;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
     margin-top: 30px;
-    margin-left: 800px;
-}
+    text-align: center;
+  }
+  
+  .input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .ic1 {
+    margin-top: 40px;
+  }
+  
+  .ic2 {
+    margin-top: 30px;
+  }
+  
+  
+  
+  .input_facture {
+    background-color: #F5BE2D;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+  }
+  
+  .cut {
+    background-color: #0E1657;
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 195px;
+  }
+  
+  .cut-short {
+    width: 50px;
+  }
+  
+  .input_facture:focus ~ .cut,
+  .input_facture:not(:placeholder-shown) ~ .cut {
+    transform: translateY(8px);
+  }
+  
+  .placeholder {
+    color: black;
+    font-family: sans-serif;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+  }
+  
+  .input_facture:focus ~ .placeholder,
+  .input_facture:not(:placeholder-shown) ~ .placeholder {
+    transform: translateY(-30px) translateX(10px) scale(0.75);
+  }
+  
+  .input_facture:not(:placeholder-shown) ~ .placeholder {
+    color: #808097;
+  }
+  
+  .input_facture:focus ~ .placeholder {
+    color: #F5BE2D;
+  }
+  
+  .btns{
+    display: flex;
+  }
+  
+  .submit {
+    background-color: #248C46;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    margin-left: 2px;
+    outline: 0;
+    text-align: center;
+    width: 50%;
+  }
+  
+  .annuler{
+    background-color: #EA4335;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    margin-right: 2px;
+    outline: 0;
+    text-align: center;
+    width: 50%;
+  }
+  
+  .submit:active {
+    background-color: #0E1657;
+  }
+  
+  .annuler:active {
+    background-color: #0E1657;
+  }
+  
+  

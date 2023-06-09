@@ -1,8 +1,8 @@
 import {useContext, useEffect, useState} from 'react';
 import UserProfile from './UserProfile';
 import './profile.css';
-import JwtKeyContext from "../context/JwtKeyContext";
-import ImportList from "../employes/imports/importList";
+import JwtKeyContext from "../../context/JwtKeyContext";
+import ImportList from "../imports/importList";
 
 const animals = [
     "Aardvark",
@@ -39,7 +39,7 @@ function Profile({userId}) {
 
     const jwtKey = useContext(JwtKeyContext);
     const fetchData = () => {
-        fetch("https://127.0.0.1:8089/api/employe/"+userId, {
+        fetch("http://127.0.0.1:8089/api/employe/"+userId, {
             method: "get",
             headers: {
                 'Authorization': `Bearer ${jwtKey}`,

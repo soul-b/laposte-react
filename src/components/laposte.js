@@ -5,6 +5,7 @@ import DashboardEmploye from './employes/dashboard_employe'
 
 
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import DashboardClient from './client/dashboard_client';
 
 
 function Laposte({role,userId,isLoggedIn,setIsLoggedIn}) {
@@ -21,7 +22,7 @@ function Laposte({role,userId,isLoggedIn,setIsLoggedIn}) {
       } else {
         if (role.includes("ROLE_CLIENT")) {
           return(
-            <div>Client</div>
+            <DashboardClient userId={userId} isLoggedIn={isLoggedIn}  setIsLoggedIn={setIsLoggedIn}/>
             );
         } else {
           console.log("User role not found!");

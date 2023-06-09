@@ -20,7 +20,7 @@ function Ajouter_export(props) {
 
     const jwtKey = useContext(JwtKeyContext);
     const postData = (dataToSubmit) => {
-        fetch("https://127.0.0.1:8089/api/export/", {
+        fetch("http://127.0.0.1:8089/api/export/", {
           method: "post",
           headers: {
             'Authorization': `Bearer ${jwtKey}`,
@@ -88,7 +88,7 @@ function Ajouter_export(props) {
         <>
         
            
-            {!modal &&(<button onClick={toggleAjouter_export} className="btn_ajouter_client">
+            {!modal &&(<button onClick={toggleAjouter_export} className="btn_ajouter_export">
                 Ajouter un nouvel export
             </button>)}
             {modal &&(

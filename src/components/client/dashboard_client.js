@@ -2,7 +2,7 @@
 import ImportBoard from './imports/importBoard'
 import ExportBoard from './exports/exportBoard'
 
-import Sidebar_employe from './sidebar_employe'
+import Sidebar_client from './sidebar_client'
 
 
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
@@ -12,12 +12,12 @@ import Profile from "./profile/Profile";
 import LogoutComponent from "../forms/LogoutComponent";
 
 
-function DashboardEmploye({userId,isLoggedIn,setIsLoggedIn}) {
+function DashboardClient({userId,isLoggedIn,setIsLoggedIn}) {
   const jwtKey = useContext(JwtKeyContext);
       return (
         <div className="DashboardEmploye">
             <BrowserRouter>
-            <Sidebar_employe/>
+            <Sidebar_client/>
             <Routes>
                 <Route path="/employe/gestion_import" element={<ImportBoard />} />
                 <Route path="/employe/gestion_export" element={<ExportBoard/>} />
@@ -30,4 +30,4 @@ function DashboardEmploye({userId,isLoggedIn,setIsLoggedIn}) {
       )
 }
   
-export default DashboardEmploye
+export default DashboardClient

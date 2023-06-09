@@ -4,6 +4,7 @@ import ClientList2 from './clientList2'
 import Ajouter_client from '../../forms/ajouter_client';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+import './../styles/dashboard.scss'
 
 
 

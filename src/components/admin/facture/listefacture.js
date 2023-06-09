@@ -9,7 +9,7 @@ function ListeFacture(props) {
   const [APIData, setAPIData] = useState([]);
   const jwtKey = useContext(JwtKeyContext);
   const fetchData = () => {
-    fetch("https://127.0.0.1:8089/api/facture", {
+    fetch("http://127.0.0.1:8089/api/facture", {
       method: "get",
       headers: {
         'Authorization': `Bearer ${jwtKey}`,

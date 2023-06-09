@@ -19,7 +19,7 @@ function Ajouter_import(props) {
 
     const jwtKey = useContext(JwtKeyContext);
     const postData = (dataToSubmit) => {
-        fetch("https://127.0.0.1:8089/api/import/", {
+        fetch("http://127.0.0.1:8089/api/import/", {
           method: "post",
           headers: {
             'Authorization': `Bearer ${jwtKey}`,
@@ -87,7 +87,7 @@ function Ajouter_import(props) {
         <>
 
 
-            {!modal &&(<button onClick={toggleAjouter_import} className="btn_ajouter_client">
+            {!modal &&(<button onClick={toggleAjouter_import} className="btn_ajouter_import">
                 Ajouter un nouvel import
             </button>)}
             {modal &&(
