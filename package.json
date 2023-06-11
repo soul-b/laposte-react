@@ -23,6 +23,7 @@
     "react-select": "^5.7.3",
     "sass": "^1.62.1",
     "sass-loader": "^13.3.1",
+    "sweetalert2": "^11.7.12",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -48,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.22.5"
   }
 }

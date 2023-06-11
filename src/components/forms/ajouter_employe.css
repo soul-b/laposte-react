@@ -1,0 +1,75 @@
+
+
+
+
+
+.form{
+    background-color: #F0EDED;
+    border: 1ps solid #C9C5C5;
+    margin: 5% auto 10% auto;
+    width: 30%;
+    animation: anim .6s;
+    text-align: left;
+}
+ .image{
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+ }
+
+ .close{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    color: black;
+    font-size: 30px;
+    font-weight: 700;
+ }
+
+ .close:hover{
+    color: red;
+    cursor: pointer;
+ }
+ 
+ .content{
+    padding: 16px;
+ }
+ 
+ .textzone{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    display: inline-block;
+    border: 1px solid gray;
+    box-sizing: border-box;
+ }
+
+ .btn_ajouter_client{
+   width: 300px;
+   height: 30px;
+   font-size: 6px;
+   background-color: #F5BF27;
+   border-radius: 3px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+   margin-left: 850px;
+   margin-top: 20px;
+   margin-right: 5px;
+   font-size: 15px;
+   border-radius: 5px;
+ }
+
+ .btnreset{
+    width: auto;
+    padding: 10px 20px;
+    background-color: red;
+ }
+
+ @keyframes anim {
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+    
+ }

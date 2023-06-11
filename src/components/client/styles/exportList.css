@@ -15,6 +15,10 @@
 
 
 
+.valider_ajout{
+  background-color: greenyellow;
+}
+
 .parametre{
   width: 100%;
   height: 60px;
@@ -181,7 +185,7 @@
   text-align: center;
   height: 45px;
   width: 79px;
-  font-size: 8px;
+  font-size: 15px;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
 }
@@ -203,10 +207,11 @@
   
 }
 
-button{
+.valider_ajout{
   width: 42.7px;
   font-size: 8px;
   text-align: center;
+  background-color: greenyellow;
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -263,17 +268,13 @@ button{
   
 }
 
-input[type="number"] {
-  border: none;
-  width: 50px;
-}
 
 .champ_2_d{
   border: 1px solid black;
   text-align: center;
   height: 45px;
   width: 86px;
-  font-size: 8px;
+  font-size: 15px;
 }
 
 .champ_2_t{
