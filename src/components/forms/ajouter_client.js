@@ -5,7 +5,7 @@ import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import "./ajouter_client.css";
 import JwtKeyContext from "../context/JwtKeyContext";
 
-function Ajouter_client(props) {
+function Ajouter_client({doChanging}) {
     const [modal, SetAjouter_client] = useState(false);
     
     const toggleAjouter_client = () => {
@@ -29,6 +29,7 @@ function Ajouter_client(props) {
            //do something awesome that makes the world a better place
            console.log(response)
            if(response.ok){
+               doChanging();
             toggleAjouter_client()
            }else{
             alert("error system")
@@ -41,7 +42,10 @@ function Ajouter_client(props) {
         email: "",
         nom: "",
         adresse: "",
-        tel:""
+        tel:"",
+        codepostal: "",
+        matriculefiscale: "",
+        ville: ""
       });
 
       const handleChange = (e) => {
@@ -59,14 +63,11 @@ function Ajouter_client(props) {
             tel: Number(data.tel),
             email: data.email,
             adresse: data.adresse,
+            ville:data.ville,
+            codepostal:data.codepostal,
+            matriculefiscale:data.matriculefiscale
         };
 
-        const userData2 = {
-            nom: "Client test submit",
-            tel: 6666666,
-            email: "66d66@example.com",
-            adresse: "Adresse client 666",
-          }
         console.log("**************");
         console.log(userData)
         postData(userData);
@@ -97,7 +98,21 @@ function Ajouter_client(props) {
 
                                     <label><strong>Téléphone : </strong></label>
                                     <input type="text" name="tel" className="textzone" placeholder="Entrer le numéro de télephone " value={data.tel} onChange={handleChange}/>
+
+                                    <label><strong>Code postale : </strong></label>
+                                    <input type="text" name="codepostal" className="textzone" placeholder="Entrer le code postal " value={data.codepostal} onChange={handleChange}/>
+
+                                    <label><strong>Matricule fiscale : </strong></label>
+                                    <input type="text" name="matriculefiscale" className="textzone" placeholder="Entrer le matricule fiscale " value={data.matriculefiscale} onChange={handleChange}/>
+
+                                    <label><strong>Vile : </strong></label>
+                                    <input type="text" name="ville" className="textzone" placeholder="Entrer le matricule fiscale " value={data.ville} onChange={handleChange}/>
+
+
+
                                     <button type="submit" name="valider_ajout">Valider</button>
+
+
                                 </div>
                                 
                                 <div className="content">

@@ -4,16 +4,12 @@ import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import JwtKeyContext from "../../context/JwtKeyContext";
 
 
-function Modifier_client(props) {
-    const modal=props.modal;
-    
-    const toggleModifierClientForm = () => {
-        props.toggleModifierClientForm()
-    }
+function Modifier_client({userToUpdateData, doChanging ,modal,toggleModifierClientForm}) {
+    const toggleModifierClientFormLocal = ()=> toggleModifierClientForm();
 
     const jwtKey = useContext(JwtKeyContext);
     const postData = (dataToSubmit) => {
-        fetch("http://127.0.0.1:8089/api/client/"+props.userToUpdateData.id, {
+        fetch("http://127.0.0.1:8089/api/client/"+userToUpdateData.id, {
           method: "put",
           headers: {
             'Authorization': `Bearer ${jwtKey}`,
@@ -28,7 +24,8 @@ function Modifier_client(props) {
            //do something awesome that makes the world a better place
            console.log(response)
            if(response.ok){
-            alert("modify")
+                alert("modify")
+               doChanging();
            }else{
             alert("error system")
            }
@@ -37,10 +34,10 @@ function Modifier_client(props) {
   
     
     const [data, setData] = useState({
-        email: props.userToUpdateData.email,
-        nom: props.userToUpdateData.nom,
-        adresse: props.userToUpdateData.adresse,
-        tel:props.userToUpdateData.tel
+        email: userToUpdateData.email,
+        nom: userToUpdateData.nom,
+        adresse: userToUpdateData.adresse,
+        tel:userToUpdateData.tel
       });
 
       const handleChange = (e) => {
@@ -77,7 +74,7 @@ function Modifier_client(props) {
                 
                 <form className="table-row" onSubmit={handleSubmit}>
                                 
-                                    <input type="text" name="nom" className="col col-1" placeholder="Entrer le nom" value={props.userToUpdateData.id} onChange={handleChange}/>
+                                    <input type="text" name="nom" className="col col-1" placeholder="Entrer le nom" value={userToUpdateData.id} onChange={handleChange}/>
 
                                     
                                     <input type="text" name="nom" className="col col-2" placeholder="Entrer le nom" value={data.nom} onChange={handleChange}/>
@@ -90,7 +87,7 @@ function Modifier_client(props) {
 
                                     
                                     <input type="text" name="tel" className="col col-5" placeholder="Entrer le numéro de télephone " value={data.tel} onChange={handleChange}/>
-                                    <div className=" col col-6"><div><button type="submit" name="valider_ajout">Valider</button></div><div><button id="" className="" onClick={toggleModifierClientForm}>Annuler</button></div></div>
+                                    <div className=" col col-6"><div><button type="submit" name="valider_ajout">Valider</button></div><div><button id="" className="" onClick={toggleModifierClientFormLocal}>Annuler</button></div></div>
 
                                     
                               
