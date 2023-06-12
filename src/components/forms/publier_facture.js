@@ -6,10 +6,16 @@ import "./publier_facture.css";
 import JwtKeyContext from "../context/JwtKeyContext";
 import writtenNumber from 'written-number';
 import CreateFactureTemplate from "../admin/facture/CreateFactureTemplate";
+import JsPDF from 'jspdf';
 
 function Publier_facture({factureData}) {
     const [modal, SetPublier_facture] = useState(true);
-
+    const generatePDF = () => {
+        const report = new JsPDF('portrait','pt','a3');
+        report.html(document.querySelector('#facture')).then(() => {
+            report.save('report.pdf');
+        });
+    }
     const togglePublier_facture = () => {
         SetPublier_facture(!modal)
     }
@@ -32,6 +38,7 @@ function Publier_facture({factureData}) {
                 //do something awesome that makes the world a better place
                 console.log(response)
                 if (response.ok) {
+                    generatePDF();
                     togglePublier_facture()
                 } else {
                     alert("error system")

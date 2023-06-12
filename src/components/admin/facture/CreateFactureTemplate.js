@@ -36,7 +36,7 @@ function CreateFactureTemplate({factureData,factureDataToSubmit,handleRemiseChan
             <div className="overlay"></div>
             <div className="v_all">
 
-                <div className="all">
+                <div className="all" id="facture">
 
 
                     <header>
