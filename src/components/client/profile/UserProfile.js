@@ -18,7 +18,7 @@ export default function EditableUserProfile({
             <h2>Id:</h2> {employeData.id}
         </Group>
         <Group>
-            <h2>Name:</h2> {employeData.nom+" "+employeData.prenom}
+            <h2>Name:</h2> {employeData.nom}
         </Group>
         <Group>
             <h2>Telephone:</h2>  {employeData.tel}

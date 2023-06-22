@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Select from 'react-select';
 import JwtKeyContext from '../context/JwtKeyContext';
+import "./ajouter_import.css";
 
 const ClientSearch = ({ onSelectClient }) => {
   const [clients, setClients] = useState([]);
@@ -23,7 +24,6 @@ const ClientSearch = ({ onSelectClient }) => {
         console.error('Error fetching clients:', error);
       }
     };
-
     fetchClients();
   }, []);
 
@@ -39,6 +39,7 @@ const ClientSearch = ({ onSelectClient }) => {
 
   return (
     <Select
+      className="input_nb_sacs"
       options={options}
       value={selectedClient}
       onChange={handleSelectClient}

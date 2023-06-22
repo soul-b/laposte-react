@@ -69,7 +69,6 @@ function ClientElment({data,doChanging}) {
         </>
 
     )
-
 }
 
 export default ClientElment

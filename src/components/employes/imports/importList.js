@@ -135,25 +135,7 @@ function ImportList(props) {
 
     return (
         <>
-            <div className="controle-panel">
-                <button onClick={handleFirstPage} disabled={currentPage === 1} className="control-button first-button">
-                    First
-                </button>
-                <button onClick={handlePreviousPage} disabled={currentPage === 1} className="control-button previous-button">
-                    Précédent
-                </button>
-                <select value={currentPage} onChange={handlePageSelect} className="page-select current-page">
-                    {Array.from({ length: maxPage }, (_, index) => (
-                        <option key={index + 1} value={index + 1}>{index + 1}</option>
-                    ))}
-                </select>
-                <button onClick={handleNextPage} disabled={currentPage === maxPage} className="control-button next-button">
-                    Suivant
-                </button>
-                <button onClick={handleLastPage} disabled={currentPage === maxPage} className="control-button last-button">
-                    Last
-                </button>
-            </div>
+            
 
             <div className="parametre">
 
@@ -179,7 +161,7 @@ function ImportList(props) {
                     <div className="date_a">{pageCurrentDate}</div>
                     <div className="sub-part">
                         <div className="range">
-                            <h6>range_5</h6>
+                            <h6>0 à 5 kg</h6>
                             <div className="sub-range">
                                 <div className="sub-range-part">N sacs</div>
                                 <div className="sub-range-part">Montant</div>
@@ -189,7 +171,7 @@ function ImportList(props) {
 
                         </div>
                         <div className="range">
-                            <h6>range_10</h6>
+                            <h6>5 à 10 kg</h6>
                             <div className="sub-range">
                                 <div className="sub-range-part">N sacs</div>
                                 <div className="sub-range-part">Montant</div>
@@ -199,7 +181,7 @@ function ImportList(props) {
 
                         </div>
                         <div className="range">
-                            <h6>range_15</h6>
+                            <h6>10 à 15 kg</h6>
                             <div className="sub-range">
                                 <div className="sub-range-part">N sacs</div>
                                 <div className="sub-range-part">Montant</div>
@@ -209,7 +191,7 @@ function ImportList(props) {
 
                         </div>
                         <div className="range">
-                            <h6>range_20</h6>
+                            <h6>15 à 20 kg</h6>
                             <div className="sub-range">
                                 <div className="sub-range-part">N sacs</div>
                                 <div className="sub-range-part">Montant</div>
@@ -219,7 +201,7 @@ function ImportList(props) {
 
                         </div>
                         <div className="range">
-                            <h6>range_25</h6>
+                            <h6>20 à 25 kg</h6>
                             <div className="sub-range">
                                 <div className="sub-range-part">N sacs</div>
                                 <div className="sub-range-part">Montant</div>
@@ -229,7 +211,7 @@ function ImportList(props) {
 
                         </div>
                         <div className="range">
-                            <h6>range_30</h6>
+                            <h6>25 à 30 kg</h6>
                             <div className="sub-range">
                                 <div className="sub-range-part">N sacs</div>
                                 <div className="sub-range-part">Montant</div>
@@ -272,14 +254,20 @@ function ImportList(props) {
             ))}
             {!error && <LoadingIndicator isLoading={isLoading}/>}
 
-            <div className="controle-importList">
-                <button onClick={handlePreviousPage} disabled={currentPage === 1} className="precedent-import">
-                    Précédent
-                </button>
-                <span className="curent-page">{currentPage}</span>
-                <button onClick={handleNextPage} disabled={currentPage === maxPage} className="next-import">
-                    Suivant
-                </button>
+            <div className="controle-panel">
+                 <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512" onClick={handleFirstPage} disabled={currentPage === 1} className="control-button first-button" ><path d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM231 127c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-71 71L376 232c13.3 0 24 10.7 24 24s-10.7 24-24 24l-182.1 0 71 71c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L119 273c-9.4-9.4-9.4-24.6 0-33.9L231 127z"/></svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" onClick={handlePreviousPage} disabled={currentPage === 1} className="control-button previous-button"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+
+                <select value={currentPage} onChange={handlePageSelect} className="page-select current-page">
+                    {Array.from({ length: maxPage }, (_, index) => (
+                        <option key={index + 1} value={index + 1}>{index + 1}</option>
+                    ))}
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" onClick={handleNextPage} disabled={currentPage === maxPage} className="control-button next-button"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512" onClick={handleLastPage} disabled={currentPage === maxPage} className="control-button last-button" ><path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+
             </div>
 
 

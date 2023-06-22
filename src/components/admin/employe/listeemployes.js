@@ -95,8 +95,7 @@ function Listeemployes(props) {
 
         </div>
 
-
     )
 }
 
-export default Listeemployes
+export default Listeemployes;

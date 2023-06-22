@@ -179,7 +179,7 @@
     text-align: center;
     height: 45px;
     width: 76px;
-    font-size: 8px;
+    font-size: 15px;
   }
   
   .field_2_t{
@@ -199,11 +199,7 @@
     
   }
   
-  button{
-    width: 43px;
-    font-size: 8px;
-    text-align: center;
-  }
+ 
   
 
 
@@ -255,17 +251,14 @@
     
   }
   
-  input[type="number"] {
-    border: none;
-    width: 50px;
-  }
+  
   
   .champ_2_d{
     border: 1px solid black;
     text-align: center;
     height: 45px;
     width: 86px;
-    font-size: 8px;
+    font-size: 15px;
   }
   
   .champ_2_t{
@@ -332,16 +325,7 @@
   margin-top: 20px;
 }
 
-.control-button {
-  padding: 10px 20px;
-  margin: 0 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+
 
 .control-button:hover {
   background-color: #0056b3;
@@ -383,16 +367,7 @@
   margin-top: 20px;
 }
 
-.control-button {
-  padding: 10px 20px;
-  margin: 0 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+
 
 .control-button:hover {
   background-color: #0056b3;
@@ -403,21 +378,7 @@
   cursor: not-allowed;
 }
 
-.first-button {
-  background-color: #4caf50;
-}
 
-.previous-button {
-  background-color: #ff9800;
-}
-
-.next-button {
-  background-color: #f44336;
-}
-
-.last-button {
-  background-color: #9c27b0;
-}
 
 .page-select {
   padding: 8px;
@@ -434,7 +395,9 @@
 }
 
 
-
+.valider_ajout{
+  background-color: greenyellow;
+}
 
 
 

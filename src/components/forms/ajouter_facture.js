@@ -7,7 +7,7 @@ import JwtKeyContext from "../context/JwtKeyContext";
 import Publier_facture from "./publier_facture";
 import ClientSearch from "./searchClient";
 
-function Ajouter_facture(props) {
+function Ajouter_facture({doChanging}) {
     const [modal, SetAjouter_facture] = useState(false);
     const [publier, SetPublier_facture] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
@@ -182,7 +182,7 @@ function Ajouter_facture(props) {
 
             )}
             
-            {publier &&(<Publier_facture factureData={factureData}/>)}
+            {publier &&(<Publier_facture factureData={factureData} doChanging={doChanging}/>)}
 
 
         </div>

@@ -14,16 +14,15 @@ function Laposte({role,userId,isLoggedIn,setIsLoggedIn}) {
           <DashboardAdmin userId={userId} isLoggedIn={isLoggedIn}  setIsLoggedIn={setIsLoggedIn}/>
         );
     } else {
-      if (role.includes("ROLE_USER")) {
+      if (role.includes("ROLE_CLIENT")) {
         return(
-         <DashboardEmploye userId={userId} isLoggedIn={isLoggedIn}  setIsLoggedIn={setIsLoggedIn}/>
-          );
-        
-      } else {
-        if (role.includes("ROLE_CLIENT")) {
-          return(
             <DashboardClient userId={userId} isLoggedIn={isLoggedIn}  setIsLoggedIn={setIsLoggedIn}/>
-            );
+        );
+      } else {
+        if (role.includes("ROLE_USER")) {
+          return(
+              <DashboardEmploye userId={userId} isLoggedIn={isLoggedIn}  setIsLoggedIn={setIsLoggedIn}/>
+          );
         } else {
           console.log("User role not found!");
         }

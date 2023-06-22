@@ -88,37 +88,37 @@ function Modifier_export(props) {
                                         <div className="champ_2_d">-</div>
                                         <div className="champ">
                                             <div className="champ_2">
-                                            <input type="number" id="range_5" name="range_5" value={data.range_5} onChange={handleChange}/>
+                                            <input type="number" id="range_5"  className= "in" name="range_5" value={data.range_5} onChange={handleChange}/>
                                             </div>
                                             <div className="champ_2_m">-</div>
                                         </div>
                                         <div className="champ">
                                             <div className="champ_2">
-                                            <input type="number" id="range_10" name="range_10" value={data.range_10} onChange={handleChange}/>
+                                            <input type="number" id="range_10"  className= "in" name="range_10" value={data.range_10} onChange={handleChange}/>
                                             </div>
                                             <div className="champ_2_m">-</div>
                                         </div>
                                         <div className="champ">
                                             <div className="champ_2">
-                                            <input type="number" id="range_15"name="range_15" value={data.range_15} onChange={handleChange}/>
+                                            <input type="number" id="range_15" className= "in" name="range_15" value={data.range_15} onChange={handleChange}/>
                                             </div>
                                             <div className="champ_2_m">-</div>
                                         </div>
                                         <div className="champ">
                                             <div className="champ_2">
-                                            <input type="number" id="range_20"name="range_20" value={data.range_20} onChange={handleChange}/>
+                                            <input type="number" id="range_20" className= "in" name="range_20" value={data.range_20} onChange={handleChange}/>
                                             </div>
                                             <div className="champ_2_m">-</div>
                                         </div>
                                         <div className="champ">
                                             <div className="champ_2">
-                                            <input type="number" id="range_25"name="range_25" value={data.range_25} onChange={handleChange}/>
+                                            <input type="number" id="range_25" className= "in" name="range_25" value={data.range_25} onChange={handleChange}/>
                                             </div>
                                             <div className="champ_2_m">-</div>
                                         </div>
                                         <div className="champ">
                                             <div className="champ_2">
-                                            <input type="number" id="range_30"name="range_30" value={data.range_30} onChange={handleChange}/>
+                                            <input type="number" id="range_30" className= "in" name="range_30" value={data.range_30} onChange={handleChange}/>
                                             </div>
                                             <div className="champ_2_m">-</div>
                                         </div>
