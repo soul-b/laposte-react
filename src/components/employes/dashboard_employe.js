@@ -8,7 +8,7 @@ import Sidebar_employe from './sidebar_employe'
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import JwtKeyContext from '../context/JwtKeyContext';
 import { useContext } from 'react';
-import Profile from "../profile/Profile";
+import Profile from "./profile/Profile";
 import LogoutComponent from "../forms/LogoutComponent";
 
 

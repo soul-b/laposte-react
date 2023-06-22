@@ -16,7 +16,7 @@ function Login({ setIsLoggedIn, setRole, setjwtKey,setUserId }) {
   });
 
   const postData = (dataToSubmit) => {
-    fetch("https://127.0.0.1:8089/api/login_check", {
+    fetch("http://127.0.0.1:8089/api/login_check", {
       method: "post",
       headers: {
         'Accept': 'application/json',
@@ -137,16 +137,16 @@ function Login({ setIsLoggedIn, setRole, setjwtKey,setUserId }) {
       <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label>Username </label>
-          <input type="text" name="username" value={login.nom} onChange={handleChange} required />
+          <input type="text" name="username" className="input_login" value={login.nom} onChange={handleChange} required />
           {renderErrorMessage("username")}
         </div>
         <div className="input-container">
           <label>Password </label>
-          <input type="password" name="password" value={login.nom} onChange={handleChange} required />
+          <input type="password" name="password" className="input_login" value={login.nom} onChange={handleChange} required />
           {renderErrorMessage("password")}
         </div>
         <div className="button-container">
-          <input type="submit" />
+          <input type="submit" className="login_submit"/>
         </div>
       </form>
     </div>

@@ -1,6 +1,4 @@
-div{
-  text-align: center;
-}
+
 
 
 .select_client{
@@ -41,12 +39,14 @@ div{
   background-color: #171C63;
   color: white;
   margin: 0px;
+  text-align: center;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   
 }
 .sub-title{
   background-color: rgb(254, 244, 187);
+  text-align: center;
   
 }
 .part{
@@ -105,11 +105,12 @@ div{
   
 
 }
-.date{
+.date_b{
   display: block;
   height: 45px;
   width: 150px;
   border: 1px solid black;
+  border-bottom-left-radius: 5px;
 }
 
 .nb-total-sacs{
@@ -140,7 +141,16 @@ div{
 
 
 
+.logo-svg{
+  margin: 5px ;
+  fill: #b59809;
+}
 
+
+.logo-svg-s{
+  margin: 5px ;
+  fill: #c51e08;
+}
 
 
 
@@ -183,7 +193,7 @@ div{
   text-align: center;
   height: 45px;
   width: 79px;
-  font-size: 8px;
+  font-size: 15px;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
 }
@@ -205,23 +215,15 @@ div{
   
 }
 
-button{
+.valider_ajout{
   width: 42.7px;
   font-size: 8px;
   text-align: center;
+  background-color: greenyellow;
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
 }
 
-.btn_ajouter_client{
-  width: 100px;
-  height: 50px;
-  font-size: 6px;
-  background-color: aquamarine;
-  opacity: 0.5;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
 
 
 
@@ -253,7 +255,9 @@ button{
 }
 
 
-
+.valider_ajout{
+  background-color: greenyellow;
+}
 
 
 .champ {
@@ -274,7 +278,7 @@ button{
   
 }
 
-input[type="number"] {
+.in {
   border: none;
   width: 50px;
 }
@@ -300,8 +304,137 @@ input[type="number"] {
 
 
 
+.controle-importList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.precedent-import,
+.next-import {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.precedent-import:hover,
+.next-import:hover {
+  background-color: #0056b3;
+}
+
+.precedent-import:disabled,
+.next-import:disabled {
+  background-color: #dcdcdc;
+  cursor: not-allowed;
+}
+
+.curent-page {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 10px;
+}
 
 
+
+
+/*
+
+*/
+
+
+
+.controle-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+
+.control-button:hover {
+  background-color: #0056b3;
+}
+
+.control-button:disabled {
+  background-color: #dcdcdc;
+  cursor: not-allowed;
+}
+
+.page-select {
+  padding: 8px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.current-page {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.controle-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+
+.control-button:hover {
+  background-color: #0056b3;
+}
+
+.control-button:disabled {
+  background-color: #dcdcdc;
+  cursor: not-allowed;
+}
+
+
+
+
+
+
+
+.page-select {
+  padding: 8px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.current-page {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+
+
+
+.control-button{
+  margin: 5px;
+}
 
 
 

@@ -4,9 +4,13 @@ import ClientSearch from './searchClient'
 import "./ajouter_import.css";
 import JwtKeyContext from "../context/JwtKeyContext";
 
+import Swal from 'sweetalert2'
+
 function Ajouter_import(props) {
     const [modal, SetAjouter_import] = useState(false);
     const [selectedClientId, setSelectedClientId] = useState(null);
+
+    const Swal = require('sweetalert2')
 
 
     const handleSelectClient = (clientId) => {
@@ -19,7 +23,7 @@ function Ajouter_import(props) {
 
     const jwtKey = useContext(JwtKeyContext);
     const postData = (dataToSubmit) => {
-        fetch("https://127.0.0.1:8089/api/import/", {
+        fetch("http://127.0.0.1:8089/api/import/", {
           method: "post",
           headers: {
             'Authorization': `Bearer ${jwtKey}`,
@@ -34,11 +38,21 @@ function Ajouter_import(props) {
            //do something awesome that makes the world a better place
 
            if(response.ok){
-            alert("ajouter")
+            Swal.fire({
+                icon: 'success',
+                title: 'Client ajouté !',
+                showConfirmButton: false,
+                timer: 1500
+              })
             props.doChanging()
             toggleAjouter_import()
            }else{
-            alert("error system")
+            Swal.fire({
+                icon: 'error',
+                title: 'veillez remplir tous les champs !',
+                showConfirmButton: false,
+                timer: 1500
+              })
            }
         })
     };
@@ -87,57 +101,67 @@ function Ajouter_import(props) {
         <>
 
 
-            {!modal &&(<button onClick={toggleAjouter_import} className="btn_ajouter_client">
+            {!modal &&(<button onClick={toggleAjouter_import} className="btn_ajouter_import">
                 Ajouter un nouvel import
             </button>)}
             {modal &&(
                 <div className="modal_ajout">
 
-                            <form  onSubmit={handleSubmit}>
-                                <div className="form_ajout">
-                                    <div className="champ_a">
-                                        <label className="lablel">Nombre de sac de 0 à 5kg:</label>
-                                        <input className="input_a" type="number" id="range_5" name="range_5" value={data.range_5}onChange={handleChange}/>
-
-
-                                    </div>
-                                    <div className="champ_a">
-                                        <label className="lablel">Nombre de sac de 5 à 10kg:</label>
-                                        <input className="input_a" type="number" id="range_10" name="range_10" value={data.range_10}onChange={handleChange}/>
-
-
-                                    </div>
-                                    <div className="champ_a">
-                                        <label className="lablel">Nombre de sac de 10 à 15kg:</label>
-
-                                        <input className="input_a" type="number" id="range_15"name="range_15" value={data.range_15}onChange={handleChange}/>
-
-
-                                    </div>
-                                    <div className="champ_a">
-                                        <label className="lablel">Nombre de sac de 15 à 20kg:</label>
-                                        <input className="input_a" type="number" id="range_20"name="range_20" value={data.range_20}onChange={handleChange}/>
-
-
-                                    </div>
-                                    <div className="champ_a">
-                                        <label className="lablel">Nombre de sac de 20 à 25kg:</label>
-                                        <input type="number" id="range_25"name="range_25" value={data.range_25}onChange={handleChange}/>
-
-
-                                    </div>
-                                    <div className="champ_a">
-                                        <label className="lablel">Nombre de sac de 25 à 30kg:</label>
-                                        <input className="input_a" type="number" id="range_30"name="range_30" value={data.range_30} onChange={handleChange}/>
-
-
-                                    </div>
-
-                                    <ClientSearch onSelectClient={handleSelectClient} />
-                                    <button type="submit" name="valider_ajout">Valider</button>
-                                    <button onClick={toggleAjouter_import}>Annuler</button>
-                                </div>
-                            </form>
+                            
+<form  onSubmit={handleSubmit}>
+<div className="form_ajout_t">
+                    <div className="title_facture">Créer un import</div>
+                    <div className="subtitle">Veillez saisir les informations nécessaires</div>
+                    <div className="input-container ic1">
+                      <ClientSearch  onSelectClient={handleSelectClient} />
+                      <div className="cut"></div>
+                      <label for="clientname" className="placeholder">Nom du client</label>
+                    </div>
+                    <div className="input-container ic2">
+                      <input className="input_nb_sacs" type="number" name="range_5" placeholder=" " value={data.range_5}onChange={handleChange}/>
+                      <div className="cut"></div>
+                      <label for="type" className="placeholder">Nombre de sacs de 0 à 5 kg</label>
+                    </div>
+                    <div className="input-container ic2">
+                      <input className="input_nb_sacs" type="number"  name="range_10" placeholder=" " value={data.range_10}onChange={handleChange}/>
+                      <div className="cut"></div>
+                      <label for="type" className="placeholder">Nombre de sacs de 5 à 10 kg</label>
+                    </div>
+                    <div className="input-container ic2">
+                      <input className="input_nb_sacs" type="number"  name="range_15" placeholder=" " value={data.range_15}onChange={handleChange}/>
+                      <div className="cut"></div>
+                      <label for="type" className="placeholder">Nombre de sacs de 10 à 15 kg</label>
+                    </div>
+                    <div className="input-container ic2">
+                      <input className="input_nb_sacs" type="number"  name="range_20" placeholder=" " value={data.range_20}onChange={handleChange}/>
+                      <div className="cut"></div>
+                      <label for="type" className="placeholder">Nombre de sacs de 15 à 20 kg</label>
+                    </div>
+                    <div className="input-container ic2">
+                      <input className="input_nb_sacs" type="number"  name="range_25" placeholder=" " value={data.range_25}onChange={handleChange}/>
+                      <div className="cut"></div>
+                      <label for="type" className="placeholder">Nombre de sacs de 20 à 25 kg</label>
+                    </div>
+                    <div className="input-container ic2">
+                      <input className="input_nb_sacs" type="number" name="range_30"  placeholder=" " value={data.range_30}onChange={handleChange}/>
+                      <div className="cut"></div>
+                      <label for="type" className="placeholder">Nombre de sacs de 25 à 30 kg</label>
+                    </div>
+                    <div className="input-container ic2">
+                      <input id="date_transaction" className="input_nb_sacs" name="date" type="date" placeholder=" " />
+                      <div className="cut"></div>
+                      <label for="date_transaction" className="placeholder">Période de transaction (mm/aaaa)</label>
+                    </div>
+                    
+                    
+                   <div className="btns">
+                     <button type="text" className="annuler" onClick={toggleAjouter_import}>Annuler</button>
+                     <button type="submit" className="submit">Valider</button>
+                     
+                   </div>
+                    
+                  </div>
+</form>
 
 
                 </div>

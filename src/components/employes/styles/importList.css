@@ -1,6 +1,3 @@
-div{
-    text-align: center;
-  }
 
 
 .select_client{
@@ -48,6 +45,7 @@ div{
   }
   .sub-title{
     background-color: #f4f4f4;
+    text-align: center;
     
   }
   .part{
@@ -141,10 +139,16 @@ div{
 
 
 
+.logo-svg{
+  margin: 5px ;
+  fill: #b59809;
+}
 
 
-
-
+.logo-svg-s{
+  margin: 5px ;
+  fill: #c51e08;
+}
 
 
 
@@ -182,7 +186,7 @@ div{
     text-align: center;
     height: 45px;
     width: 76px;
-    font-size: 8px;
+    font-size: 15px;
   }
   
   .field_2_t{
@@ -202,11 +206,7 @@ div{
     
   }
   
-  button{
-    width: 43px;
-    font-size: 8px;
-    text-align: center;
-  }
+  
   
 
 
@@ -258,7 +258,7 @@ div{
     
   }
   
-  input[type="number"] {
+  .in {
     border: none;
     width: 50px;
   }
@@ -267,14 +267,14 @@ div{
     border: 1px solid black;
     text-align: center;
     height: 45px;
-    width: 86px;
+    width: 80px;
     font-size: 8px;
   }
   
   .champ_2_t{
     border: 1px solid black;
     text-align: center;
-    width: 77px;
+    width: 73px;
   }
   
   .champ_2_m{
@@ -282,6 +282,15 @@ div{
     width: 85px;
   }
 
+
+  button{
+    width: 42.7px;
+    font-size: 8px;
+    text-align: center;
+    background-color: greenyellow;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+  }
 
 .controle-importList {
   display: flex;
@@ -335,16 +344,7 @@ div{
   margin-top: 20px;
 }
 
-.control-button {
-  padding: 10px 20px;
-  margin: 0 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+
 
 .control-button:hover {
   background-color: #0056b3;
@@ -364,7 +364,7 @@ div{
 }
 
 .current-page {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
   margin: 0 10px;
 }
@@ -386,16 +386,7 @@ div{
   margin-top: 20px;
 }
 
-.control-button {
-  padding: 10px 20px;
-  margin: 0 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+
 
 .control-button:hover {
   background-color: #0056b3;
@@ -406,21 +397,11 @@ div{
   cursor: not-allowed;
 }
 
-.first-button {
-  background-color: #4caf50;
-}
 
-.previous-button {
-  background-color: #ff9800;
-}
 
-.next-button {
-  background-color: #f44336;
-}
 
-.last-button {
-  background-color: #9c27b0;
-}
+
+
 
 .page-select {
   padding: 8px;

@@ -3,23 +3,25 @@ import ClientElment from './clientElement'
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import JwtKeyContext from '../../context/JwtKeyContext';
+import LoadingIndicator from "../../utils/LoadingIndicator";
+import ServerErrorComponent from "../../utils/ServerErrorComponent";
 
 
 
-function ClientList2(props) {
+function ClientList2({changing,doChanging}) {
   const [APIData, setAPIData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect(() => {
-  //   axios.get(`https://127.0.0.1:8088/api/client`)
-  //     .then((response) => {
-  //       setAPIData(response.data);
-  //     })
-  // }, [props.isReload])
+  const [error, setError] = useState(null);
 
+  const retryFetch = () => {
+    doChanging();
+    setError(null);
+  }
 
   const jwtKey = useContext(JwtKeyContext);
   const fetchData = () => {
-    fetch("https://127.0.0.1:8089/api/client", {
+    fetch("http://127.0.0.1:8089/api/client", {
       method: "get",
       headers: {
         'Authorization': `Bearer ${jwtKey}`,
@@ -27,37 +29,28 @@ function ClientList2(props) {
         'Content-Type': 'application/json'
       },
       })
-      .then((response) => response.json())
-      .then((data) => setAPIData(data));
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Server not responding');
+        }
+        return response.json()
+      })
+      .then((data) => {
+        setAPIData(data);
+        console.log(data)
+        setIsLoading(false);
+      }).catch((error) => {
+      setError('Les donnes ne peut pas etre recuperé, ressayer plus tard');
+      console.error('NetworkError:', error);
+    });
   };
 
- 
-//  const postData = () => {
-//       fetch("https://127.0.0.1:8089/api/client/", {
-//         method: "post",
-//         headers: {
-//           'Authorization': `Bearer ${jwtKey}`,
-//           'Accept': 'application/json',
-//           'Content-Type': 'application/json'
-//         },
-      
-//         //make sure to serialize your JSON body
-//         body: JSON.stringify({
-//           nom: "Client 666",
-//           tel: 6666666,
-//           email: "6666@example.com",
-//           adresse: "Adresse client 666",
-//         })
-//       })
-//       .then( (response) => { 
-//          //do something awesome that makes the world a better place
-//          console.log(response)
-//       });
-//   };
 
   useEffect(() => {
+    setIsLoading(true);
+
     fetchData();
-  }, []);
+  }, [changing]);
 
   return (
     <ul className="responsive-table">
@@ -69,14 +62,13 @@ function ClientList2(props) {
         <div className="col col-5">Téléphone</div>
         <div className="col col-6">ACTIONS</div>
       </li>
+      {error && <div><ServerErrorComponent retryFetch={retryFetch}/></div>}
 
-      {Object.keys(APIData).length > 0 &&
-        APIData.map((data) => {
-          return (
-            <ClientElment data={data} />
+      {!isLoading && Object.keys(APIData).length > 0 && !error && APIData.map((data) => (
+                <ClientElment data={data} doChanging={doChanging}/>
           )
-        }
         )}
+      {!error && <LoadingIndicator isLoading={isLoading}/>}
 
     </ul>
   )

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Select from 'react-select';
 import JwtKeyContext from '../context/JwtKeyContext';
+import "./ajouter_import.css";
 
 const ClientSearch = ({ onSelectClient }) => {
   const [clients, setClients] = useState([]);
@@ -12,7 +13,7 @@ const ClientSearch = ({ onSelectClient }) => {
     // Update the 'clients' state with the fetched data
     const fetchClients = async () => {
       try {
-        const response = await fetch('https://127.0.0.1:8089/api/client', {
+        const response = await fetch('http://127.0.0.1:8089/api/client', {
           headers: {
             'Authorization': `Bearer ${jwtKey}`
           }});
@@ -23,7 +24,6 @@ const ClientSearch = ({ onSelectClient }) => {
         console.error('Error fetching clients:', error);
       }
     };
-
     fetchClients();
   }, []);
 
@@ -39,6 +39,7 @@ const ClientSearch = ({ onSelectClient }) => {
 
   return (
     <Select
+      className="input_nb_sacs"
       options={options}
       value={selectedClient}
       onChange={handleSelectClient}
